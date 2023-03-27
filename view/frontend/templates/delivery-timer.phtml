@@ -1,0 +1,33 @@
+<img src="https://img.favpng.com/15/10/14/royal-mail-post-office-ltd-post-box-png-favpng-Y57ZsV0rPUzPMU1MBxwqjHfts.jpg" width=100 alt="">
+<br><br>
+<script>
+    (function() {
+        var start = new Date;
+        start.setHours(19, 0, 0); // 7pm
+
+        function pad(num) {
+            return ("0" + parseInt(num)).substr(-2);
+        }
+
+        function tick() {
+            var now = new Date;
+            if (now > start) { // too late, go to tomorrow
+                start.setDate(start.getDate() + 1);
+            }
+            var remain = ((start - now) / 1000);
+            var hh = pad((remain / 60 / 60) % 60);
+            var mm = pad((remain / 60) % 60);
+            var ss = pad(remain % 60);
+            document.getElementById('time').innerHTML =
+                hh + ":" + mm + ":" + ss;
+            setTimeout(tick, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', tick);
+    })();
+</script>
+
+Only <strong><span id='time'></span></strong> left for next day delivery!
+
+
+<?php //$block->getData("test_value"); ?>
